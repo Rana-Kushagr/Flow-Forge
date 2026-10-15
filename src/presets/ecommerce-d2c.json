@@ -1,0 +1,38 @@
+{
+  "id": "ecommerce-d2c",
+  "name": "E-Commerce & D2C Brands",
+  "description": "Handles high volumes of 'Where is my order?' tracking inquiries, return/exchange authorizations, and product sizing questions.",
+  "clientName": "Lumina Activewear",
+  "calendarUrl": "https://cal.com/lumina-support/vip-styling",
+  "knowledgeBase": [
+    {
+      "title": "Shipping & Tracking Policy",
+      "content": "Standard US shipping takes 3-5 business days. Once fulfilled, tracking numbers are automatically sent via email. Orders over $75 ship free.",
+      "tags": ["shipping", "tracking", "order", "delivery", "carrier"]
+    },
+    {
+      "title": "Returns & Exchanges",
+      "content": "We offer a 30-day return policy for unworn items with tags attached. Pre-paid return shipping labels are generated automatically in the Returns Portal.",
+      "tags": ["return", "exchange", "refund", "size swap", "label"]
+    },
+    {
+      "title": "Damaged or Missing Items",
+      "content": "For items damaged during transit, notify us within 48 hours of delivery with photo proof for an immediate no-cost replacement.",
+      "tags": ["damaged", "broken", "missing", "stolen", "package"]
+    }
+  ],
+  "sampleTickets": [
+    {
+      "from": "emma.watson@example.com",
+      "subject": "Where is my order? ORD-84920",
+      "body": "Hi, I placed order ORD-84920 4 days ago and haven't received an update. Can you let me know when it will arrive?",
+      "receivedAt": "2026-10-15T10:15:00Z"
+    },
+    {
+      "from": "marcus.v@example.com",
+      "subject": "Exchange request for size medium leggings",
+      "body": "The leggings from order ORD-99211 are too small. How do I exchange them for a Large?",
+      "receivedAt": "2026-10-15T11:42:00Z"
+    }
+  ]
+}

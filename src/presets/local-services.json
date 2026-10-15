@@ -1,0 +1,42 @@
+{
+  "id": "local-services",
+  "name": "Local Services / Healthcare & Real Estate",
+  "description": "Optimized for dental clinics, law practices, and real estate brokers with heavy inbound phone/WhatsApp volume.",
+  "clientName": "Apex Dental & Aesthetics",
+  "calendarUrl": "https://cal.com/apex-demo/consultation",
+  "knowledgeBase": [
+    {
+      "title": "Pricing & Insurance",
+      "content": "We accept Delta Dental, Cigna, MetLife, and private pay. Consultations start at $150 or are fully covered by qualifying insurance plans.",
+      "tags": ["pricing", "cost", "insurance", "fee", "payment"]
+    },
+    {
+      "title": "Office Hours & Location",
+      "content": "Open Monday through Friday 8:00 AM to 6:00 PM, Saturday 9:00 AM to 2:00 PM. Located at 450 Lexington Ave, Suite 400.",
+      "tags": ["hours", "open", "location", "address", "saturday"]
+    },
+    {
+      "title": "Emergency Dental Services",
+      "content": "Same-day emergency visits are reserved for patients with severe pain or trauma if booked before 2:00 PM.",
+      "tags": ["emergency", "urgent", "pain", "broken", "immediate"]
+    }
+  ],
+  "sampleLeads": [
+    {
+      "name": "Sarah Jenkins",
+      "phone": "(555) 234-5678",
+      "email": "sarah.j@example.com",
+      "serviceRequested": "Teeth Whitening & Consultation",
+      "message": "Hi, do you take Delta Dental insurance? I'd like to book an appointment for this Saturday.",
+      "source": "whatsapp"
+    },
+    {
+      "name": "David Miller",
+      "phone": "+1 555 987 6543",
+      "email": "david.m@example.com",
+      "serviceRequested": "Emergency Extraction",
+      "message": "Urgent! Broke my front tooth an hour ago. Can I come in today?",
+      "source": "web_form"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b-agency",
+  "name": "B2B Agencies & Recruiters",
+  "description": "Screens prospective clients against minimum project retainers, qualifies talent applications, and routes high-value opportunities.",
+  "clientName": "Vanguard Growth Partners",
+  "calendarUrl": "https://cal.com/vanguard/growth-audit",
+  "knowledgeBase": [
+    {
+      "title": "Minimum Retainer & Scope",
+      "content": "Our minimum monthly retainer is $5,000/month. We specialize in B2B SaaS growth marketing and full-funnel paid media.",
+      "tags": ["retainer", "pricing", "budget", "minimum", "scope"]
+    },
+    {
+      "title": "Onboarding Timeline",
+      "content": "Client kickoff takes 7 business days following contract signature and technical audit access.",
+      "tags": ["timeline", "onboarding", "kickoff", "start"]
+    },
+    {
+      "title": "Candidate Submissions",
+      "content": "Recruiting candidates must include a resume and portfolio link. Applications are reviewed within 48 business hours.",
+      "tags": ["career", "hiring", "resume", "job", "recruiter"]
+    }
+  ],
+  "sampleLeads": [
+    {
+      "name": "Alex Chen",
+      "phone": "+1 415 555 0199",
+      "email": "alex@hypergrowth.io",
+      "budget": "$8,000/mo",
+      "serviceRequested": "B2B SaaS Paid Acquisition",
+      "message": "We just raised Series A and want to scale our outbound pipeline. Looking to start next month. What is your process?",
+      "source": "web_form"
+    }
+  ]
+}
