@@ -11,9 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.7">
+  <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
+
+  <!-- Top Scroll Progress Bar (Simplify Style) -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true"></div>
 
   <!-- 1. NAVIGATION BAR (Bg: #0A0A0C, Border: #1F1F23) -->
   <header class="nav-header" role="banner">
@@ -37,7 +40,7 @@
       <!-- Background Image with Fade to Black -->
       <div class="hero-bg-layer" aria-hidden="true">
         <div class="hero-bg-img-wrap">
-          <img src="hero-bg.jpg?v=1.5" alt="" class="hero-bg-photo">
+          <img src="hero-bg.jpg?v=2.0" alt="" class="hero-bg-photo">
         </div>
         <div class="hero-bg-overlay"></div>
       </div>
@@ -64,51 +67,63 @@
           </div>
         </div>
 
-        <!-- Right Column: Clean Architectural Blueprint Diagram (No Fake Data) -->
+        <!-- Right Column: Clean Architectural Blueprint Diagram (React Bits BorderGlow Cards) -->
         <div>
-          <div class="blueprint-card" role="region" aria-label="FlowForge Solution Blueprint">
-            <div class="blueprint-header">
-              <span class="mono-label" style="color: #ffffff; font-size: 11px;">WORKFLOW ARCHITECTURE</span>
-              <span class="mono-label" style="color: var(--color-dark-text-muted); font-size: 10px;">CONCEPTUAL OVERVIEW</span>
-            </div>
-
-            <!-- Box 1: Manual Bottleneck -->
-            <div class="blueprint-box">
-              <div class="blueprint-box-title problem">01 // MANUAL BOTTLENECK</div>
-              <div class="blueprint-box-text">
-                Repetitive customer emails, delayed lead follow-ups, or hours spent copy-pasting numbers between spreadsheets.
+          <div class="blueprint-card border-glow-card" data-border-glow data-glow-color="24 95 55" data-glow-intensity="0.85" data-colors='["#e84a15", "#ff6b35", "#f59e0b"]' role="region" aria-label="FlowForge Solution Blueprint">
+            <span class="edge-light"></span>
+            <div class="border-glow-inner">
+              <div class="blueprint-header">
+                <span class="mono-label" style="color: #ffffff; font-size: 11px;">WORKFLOW ARCHITECTURE</span>
+                <span class="mono-label" style="color: var(--color-dark-text-muted); font-size: 10px;">CONCEPTUAL OVERVIEW</span>
               </div>
-            </div>
 
-            <!-- Arrow Down -->
-            <div class="blueprint-arrow-down" aria-hidden="true">
-              <svg width="18" height="24" viewBox="0 0 18 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="9" y1="0" x2="9" y2="20"/>
-                <polyline points="4 15 9 21 14 15"/>
-              </svg>
-            </div>
-
-            <!-- Box 2: Custom Solution -->
-            <div class="blueprint-box">
-              <div class="blueprint-box-title solution">02 // CUSTOM FLOWFORGE SOLUTION</div>
-              <div class="blueprint-box-text">
-                Purpose-built AI agent + deterministic workflow rules tailored to your team's exact logic and tools.
+              <!-- Hero Card 1: Manual Bottleneck (BorderGlow) -->
+              <div class="blueprint-box border-glow-card" data-border-glow data-glow-color="0 85 65" data-colors='["#f87171", "#ef4444", "#fb923c"]'>
+                <span class="edge-light"></span>
+                <div class="border-glow-inner">
+                  <div class="blueprint-box-title problem">01 // MANUAL BOTTLENECK</div>
+                  <div class="blueprint-box-text">
+                    Repetitive customer emails, delayed lead follow-ups, or hours spent copy-pasting numbers between spreadsheets.
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <!-- Arrow Down -->
-            <div class="blueprint-arrow-down" aria-hidden="true">
-              <svg width="18" height="24" viewBox="0 0 18 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="9" y1="0" x2="9" y2="20"/>
-                <polyline points="4 15 9 21 14 15"/>
-              </svg>
-            </div>
+              <!-- Arrow Down -->
+              <div class="blueprint-arrow-down" aria-hidden="true">
+                <svg width="18" height="24" viewBox="0 0 18 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="9" y1="0" x2="9" y2="20"/>
+                  <polyline points="4 15 9 21 14 15"/>
+                </svg>
+              </div>
 
-            <!-- Box 3: Result -->
-            <div class="blueprint-box">
-              <div class="blueprint-box-title result">03 // OPERATIONAL RESULT</div>
-              <div class="blueprint-box-text">
-                Tasks handled reliably inside your existing software with zero manual busywork and clean records.
+              <!-- Hero Card 2: Custom Solution (BorderGlow) -->
+              <div class="blueprint-box border-glow-card" data-border-glow data-glow-color="20 95 60" data-colors='["#e84a15", "#ff6b35", "#f59e0b"]'>
+                <span class="edge-light"></span>
+                <div class="border-glow-inner">
+                  <div class="blueprint-box-title solution">02 // CUSTOM FLOWFORGE SOLUTION</div>
+                  <div class="blueprint-box-text">
+                    Purpose-built AI agent + deterministic workflow rules tailored to your team's exact logic and tools.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Arrow Down -->
+              <div class="blueprint-arrow-down" aria-hidden="true">
+                <svg width="18" height="24" viewBox="0 0 18 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="9" y1="0" x2="9" y2="20"/>
+                  <polyline points="4 15 9 21 14 15"/>
+                </svg>
+              </div>
+
+              <!-- Hero Card 3: Result (BorderGlow) -->
+              <div class="blueprint-box border-glow-card" data-border-glow data-glow-color="150 75 55" data-colors='["#10b981", "#34d399", "#06b6d4"]'>
+                <span class="edge-light"></span>
+                <div class="border-glow-inner">
+                  <div class="blueprint-box-title result">03 // OPERATIONAL RESULT</div>
+                  <div class="blueprint-box-text">
+                    Tasks handled reliably inside your existing software with zero manual busywork and clean records.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -121,7 +136,7 @@
     <section id="services" class="services-section" aria-labelledby="services-title">
       <div class="container">
         
-        <div class="section-head">
+        <div class="section-head scroll-reveal">
           <span class="mono-label">01 / SERVICES</span>
           <h2 id="services-title">What we build</h2>
           <p>
@@ -129,10 +144,10 @@
           </p>
         </div>
 
-        <div class="services-grid">
+        <div class="services-grid reveal-stagger">
           
           <!-- Card 1: AI Automation -->
-          <article class="service-card">
+          <article class="service-card scroll-reveal">
             <span class="service-num">01 // AUTOMATION</span>
             <h3 class="service-title">AI Automation</h3>
             <p class="service-focus">
@@ -147,7 +162,7 @@
           </article>
 
           <!-- Card 2: Workflow Automation -->
-          <article class="service-card">
+          <article class="service-card scroll-reveal">
             <span class="service-num">02 // WORKFLOWS</span>
             <h3 class="service-title">Workflow Automation</h3>
             <p class="service-focus">
@@ -162,7 +177,7 @@
           </article>
 
           <!-- Card 3: Custom AI Agents -->
-          <article class="service-card">
+          <article class="service-card scroll-reveal">
             <span class="service-num">03 // AGENTS</span>
             <h3 class="service-title">Custom AI Agents</h3>
             <p class="service-focus">
@@ -185,7 +200,7 @@
     <section id="how-it-works" class="process-section" aria-labelledby="process-title">
       <div class="container">
         
-        <div class="section-head">
+        <div class="section-head scroll-reveal">
           <span class="mono-label">02 / HOW IT WORKS</span>
           <h2 id="process-title">A straightforward, four-step process</h2>
           <p>
@@ -193,10 +208,10 @@
           </p>
         </div>
 
-        <div class="steps-grid">
+        <div class="steps-grid reveal-stagger">
           
           <!-- Step 1 -->
-          <div class="step-card">
+          <div class="step-card scroll-reveal">
             <div class="step-number">01</div>
             <h3 class="step-title">Understand the problem</h3>
             <p class="step-desc">
@@ -205,7 +220,7 @@
           </div>
 
           <!-- Step 2 -->
-          <div class="step-card">
+          <div class="step-card scroll-reveal">
             <div class="step-number">02</div>
             <h3 class="step-title">Design a solution</h3>
             <p class="step-desc">
@@ -214,7 +229,7 @@
           </div>
 
           <!-- Step 3 -->
-          <div class="step-card">
+          <div class="step-card scroll-reveal">
             <div class="step-number">03</div>
             <h3 class="step-title">Build and test</h3>
             <p class="step-desc">
@@ -223,7 +238,7 @@
           </div>
 
           <!-- Step 4 -->
-          <div class="step-card">
+          <div class="step-card scroll-reveal">
             <div class="step-number">04</div>
             <h3 class="step-title">Implement</h3>
             <p class="step-desc">
@@ -243,7 +258,7 @@
         <div class="about-split-grid">
           
           <!-- Left Column: Mission in Matte Black -->
-          <div class="about-left-col">
+          <div class="about-left-col scroll-reveal">
             <span class="mono-label">03 / ABOUT FLOWFORGE</span>
             <h2 id="about-title" class="about-headline">
               Practical problem-solving over AI hype.
@@ -254,7 +269,7 @@
           </div>
 
           <!-- Right Column: Principles in Crisp White -->
-          <div class="about-right-col">
+          <div class="about-right-col scroll-reveal">
             <div class="about-principle">
               <h3 class="principle-title">Built around your problem</h3>
               <p class="principle-text">
@@ -289,7 +304,7 @@
         <div class="contact-layout">
           
           <!-- Left Column: Context -->
-          <div class="contact-info-col">
+          <div class="contact-info-col scroll-reveal">
             <span class="mono-label" style="color: var(--color-accent); display: block; margin-bottom: 12px;">04 / GET STARTED</span>
             <h2 id="contact-title">Tell us what's taking up your time</h2>
             <p>
@@ -309,7 +324,7 @@
           </div>
 
           <!-- Right Column: High-Contrast Form Card -->
-          <div class="contact-form-card">
+          <div class="contact-form-card scroll-reveal">
             
             <form id="lead-contact-form" novalidate>
               
@@ -406,6 +421,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="app.js"></script>
+  <script src="app.js?v=2.0"></script>
 </body>
 </html>
