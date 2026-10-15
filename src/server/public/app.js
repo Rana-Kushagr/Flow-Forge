@@ -167,6 +167,17 @@ document.addEventListener("DOMContentLoaded", () => {
     return degrees;
   }
 
+  function isLightColor(color) {
+    if (!color) return false;
+    const value = color.trim().replace('#', '');
+    if (!/^[\da-f]{3}([\da-f]{3})?$/i.test(value)) return false;
+    const hex = value.length === 3 ? value.split('').map(char => char + char).join('') : value;
+    const red = parseInt(hex.slice(0, 2), 16);
+    const green = parseInt(hex.slice(2, 4), 16);
+    const blue = parseInt(hex.slice(4, 6), 16);
+    return red * 0.2126 + green * 0.7152 + blue * 0.0722 > 180;
+  }
+
   function initBorderGlow(card, config = {}) {
     const glowColor = card.dataset.glowColor || config.glowColor || '24 95 55';
     let colors = ['#e84a15', '#ff6b35', '#f59e0b'];
@@ -178,10 +189,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const intensity = parseFloat(card.dataset.glowIntensity || config.glowIntensity || 1.15);
     const edgeSensitivity = parseFloat(card.dataset.edgeSensitivity || config.edgeSensitivity || 28);
-    const borderRadius = parseFloat(card.dataset.borderRadius || config.borderRadius || 8);
+    const borderRadius = parseFloat(card.dataset.borderRadius || config.borderRadius || 10);
     const glowRadius = parseFloat(card.dataset.glowRadius || config.glowRadius || 36);
     const coneSpread = parseFloat(card.dataset.coneSpread || config.coneSpread || 24);
     const bgColor = card.dataset.backgroundColor || config.backgroundColor || '#0c0c10';
+
+    if (isLightColor(bgColor) || card.classList.contains('border-glow-card--light')) {
+      card.classList.add('border-glow-card--light');
+    }
 
     card.style.setProperty('--card-bg', bgColor);
     card.style.setProperty('--edge-sensitivity', edgeSensitivity);
