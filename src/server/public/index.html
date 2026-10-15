@@ -3,727 +3,358 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlowForge // Autonomous Operations Infrastructure</title>
-  <meta name="description" content="Industrial-grade B2B AI automation and autonomous workflow engineering firm. We replace repetitive human labor with deterministic AI systems.">
-  
-  <!-- Typography: Instrument Serif, Inter, JetBrains Mono -->
+  <title>FlowForge — Custom AI Automation &amp; Autonomous Workflows</title>
+  <meta name="description" content="FlowForge partners with businesses to identify repetitive tasks and engineer focused, custom AI automation systems and workflows that handle them.">
+
+  <!-- Typography: Plus Jakarta Sans, Instrument Serif, Inter, IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Global Subtle Grain / Noise Overlay -->
-  <div class="noise-overlay" aria-hidden="true"></div>
-
-  <!-- 1. STRUCTURAL TOP BAR (Fixed 1px Bordered Header) -->
-  <header class="top-bar-fixed" role="banner">
-    <div class="top-bar-inner">
-      <!-- Cell 1: Logo Mark & Identifier -->
-      <a href="#hero" class="top-cell brand-cell" aria-label="FlowForge Home">
-        <svg class="brand-logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <!-- Interlocking forged isometric bars -->
-          <polygon points="12 2 2 7 12 12 22 7 12 2" stroke="#FF4F00" stroke-width="2" fill="none"/>
-          <polyline points="2 17 12 22 22 17" stroke="#F4F4F6" stroke-width="2"/>
-          <polyline points="2 12 12 17 22 12" stroke="#8E8E99" stroke-width="1.5"/>
-        </svg>
-        <div class="brand-text-wrap">
-          <span class="brand-title">FLOWFORGE</span>
-          <sup class="brand-sub">SYS.01</sup>
-        </div>
+  <!-- 1. NAVIGATION BAR (Bg: #0A0A0C, Border: #1F1F23) -->
+  <header class="nav-header" role="banner">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-link" aria-label="FlowForge Home">
+        FlowForge
       </a>
 
-      <!-- Cell 2: Live Telemetry Ticker -->
-      <div class="top-cell telemetry-cell" role="status" aria-live="polite">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span>NODES ACTIVE: <strong>99.98%</strong></span>
-        <span style="color: var(--color-border-strong);">|</span>
-        <span>AVG LATENCY: <strong>380ms</strong></span>
-        <span style="color: var(--color-border-strong);">|</span>
-        <span style="color: var(--color-text-muted);">REGION: <strong>US-EAST-VA</strong></span>
-      </div>
-
-      <!-- Cell 3: Navigation -->
-      <nav class="top-cell nav-cell" aria-label="Primary Navigation">
-        <a href="#systems" class="nav-link mono">Systems</a>
-        <a href="#diff-viewer" class="nav-link mono">Architecture</a>
-        <a href="#protocol" class="nav-link mono">Protocol</a>
-        <a href="#calculator" class="nav-link mono">Calculator</a>
-        <a href="#manifesto" class="nav-link mono">About</a>
+      <nav class="nav-links-wrap" aria-label="Main Navigation">
+        <a href="#services" class="nav-item">Services</a>
+        <a href="#how-it-works" class="nav-item">How It Works</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#contact" class="nav-cta-btn">Get Started &rarr;</a>
       </nav>
-
-      <!-- Cell 4: Action Button -->
-      <div class="top-cell action-cell">
-        <a href="#diagnostic" class="btn-signal-orange">
-          INITIATE AUDIT -&gt;
-        </a>
-      </div>
     </div>
   </header>
 
   <main>
-    <!-- 2. HERO SECTION (Asymmetric Swiss Grid + Architectural Backdrop) -->
+    <!-- 2. HOME / HERO SECTION (Bg Block: Deep Matte Black #0A0A0C) -->
     <section id="hero" class="hero-section" aria-labelledby="hero-title">
-      <div class="grid-container">
-        <div class="hero-grid">
-          
-          <!-- Left Column (7 Cols - Editorial & Conversion) -->
-          <div class="hero-editorial-col crosshair top-left bottom-left">
-            <div>
-              <span class="hero-coord mono">[ 00 // AUTONOMOUS OPERATIONS INFRASTRUCTURE ]</span>
-              <h1 id="hero-title" class="hero-headline">
-                We replace repetitive human labor with <span class="serif-italic">deterministic</span> AI systems.
-              </h1>
-              <p class="hero-subhead">
-                FlowForge engineers custom AI agents and automated pipelines for businesses drowning in manual lead follow-ups, repetitive customer queries, and fragmented data entry. No generic chatbots. Pure operational throughput.
-              </p>
-              
-              <div class="hero-cta-group">
-                <a href="#diagnostic" class="btn-signal-orange">
-                  Map Your Bottleneck
-                </a>
-                <a href="#systems" class="btn-architectural">
-                  Inspect Live Blueprints
-                </a>
-              </div>
-            </div>
+      <div class="container hero-grid">
+        
+        <!-- Left Column: Headline & Value Prop -->
+        <div>
+          <span class="mono-label hero-tag">CUSTOM AI AUTOMATION FOR BUSINESSES</span>
+          <h1 id="hero-title" class="hero-title">
+            We find the repetitive work slowing your business down—and build <span class="serif-italic">custom AI systems</span> to handle it.
+          </h1>
+          <p class="hero-subtitle">
+            FlowForge partners with businesses to design and build practical AI agents and automated workflows. Instead of generic tools, we build focused solutions around your actual day-to-day bottlenecks.
+          </p>
 
-            <!-- Bottom Proof Bar (3-Column Bordered Sub-grid) -->
-            <div class="proof-bar-grid" role="region" aria-label="Operational SLA Metrics">
-              <div class="proof-cell">
-                <div class="proof-metric">&lt; 45s</div>
-                <div class="proof-label">Lead Response SLA</div>
-              </div>
-              <div class="proof-cell">
-                <div class="proof-metric">100%</div>
-                <div class="proof-label">CRM &amp; Webhook Sync Accuracy</div>
-              </div>
-              <div class="proof-cell">
-                <div class="proof-metric">14–30 hrs</div>
-                <div class="proof-label">Avg. Weekly Admin Eliminated Per Team</div>
-              </div>
-            </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary-orange">
+              Tell Us Your Problem &rarr;
+            </a>
+            <a href="#services" class="btn-secondary-white">
+              See What We Build
+            </a>
           </div>
+        </div>
 
-          <!-- Right Column (5 Cols - Interactive Live Execution Trace Hardware Panel) -->
-          <div class="hero-inspector-col crosshair top-right bottom-right" role="region" aria-label="Live System Trace Inspector">
-            <div class="inspector-header">
-              <div class="inspector-title">
-                <span class="status-dot"></span>
-                <span>SYSTEM_TELEMETRY // LIVE EXECUTION TRACE</span>
+        <!-- Right Column: Clean Architectural Blueprint Diagram (No Fake Data) -->
+        <div>
+          <div class="blueprint-card" role="region" aria-label="FlowForge Solution Blueprint">
+            <div class="blueprint-header">
+              <span class="mono-label" style="color: #ffffff; font-size: 11px;">WORKFLOW ARCHITECTURE</span>
+              <span class="mono-label" style="color: var(--color-dark-text-muted); font-size: 10px;">CONCEPTUAL OVERVIEW</span>
+            </div>
+
+            <!-- Box 1: Manual Bottleneck -->
+            <div class="blueprint-box">
+              <div class="blueprint-box-title problem">01 // MANUAL BOTTLENECK</div>
+              <div class="blueprint-box-text">
+                Repetitive customer emails, delayed lead follow-ups, or hours spent copy-pasting numbers between spreadsheets.
               </div>
-              <span class="mono" style="font-size: 10px; color: var(--color-text-muted);">MONITOR ACTIVE</span>
             </div>
 
-            <!-- 3 Switchable Blueprints -->
-            <div class="inspector-tabs" role="tablist">
-              <button class="sys-tab-btn active" role="tab" aria-selected="true" data-sys="lead">
-                01. LEAD_QUALIFICATION.sys
-              </button>
-              <button class="sys-tab-btn" role="tab" aria-selected="false" data-sys="query">
-                02. QUERY_RESOLUTION_RAG.sys
-              </button>
-              <button class="sys-tab-btn" role="tab" aria-selected="false" data-sys="invoice">
-                03. INVOICE_DATA_PIPELINE.sys
-              </button>
-            </div>
-
-            <!-- Bespoke SVG Schematic -->
-            <div class="schematic-diagram-wrap">
-              <svg class="schematic-svg" viewBox="0 0 520 100" fill="none" stroke="currentColor">
-                <!-- Trigger Node -->
-                <rect x="10" y="25" width="105" height="48" stroke="#2e2e36" fill="#09090B"/>
-                <text x="62" y="47" fill="#8E8E99" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">TRIGGER</text>
-                <text x="62" y="61" fill="#F4F4F6" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle" id="node-trigger-label">INBOUND HOOK</text>
-                
-                <!-- Connector 1 -->
-                <line x1="115" y1="49" x2="148" y2="49" stroke="#FF4F00" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="148,46 154,49 148,52" fill="#FF4F00"/>
-
-                <!-- LLM Router Node -->
-                <rect x="154" y="25" width="115" height="48" stroke="#FF4F00" fill="#121216"/>
-                <text x="211" y="47" fill="#FF4F00" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">LLM REASONER</text>
-                <text x="211" y="61" fill="#F4F4F6" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle" id="node-router-label">INTENT ROUTE</text>
-
-                <!-- Connector 2 -->
-                <line x1="269" y1="49" x2="302" y2="49" stroke="#FF4F00" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="302,46 308,49 302,52" fill="#FF4F00"/>
-
-                <!-- Tool Call Node -->
-                <rect x="308" y="25" width="95" height="48" stroke="#2e2e36" fill="#09090B"/>
-                <text x="355" y="47" fill="#8E8E99" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">TOOL CALL</text>
-                <text x="355" y="61" fill="#F4F4F6" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle" id="node-tool-label">CAL.COM API</text>
-
-                <!-- Connector 3 -->
-                <line x1="403" y1="49" x2="426" y2="49" stroke="#10B981" stroke-width="1.5"/>
-                <polygon points="426,46 432,49 426,52" fill="#10B981"/>
-
-                <!-- DB Write Node -->
-                <rect x="432" y="25" width="80" height="48" stroke="#10B981" fill="#09090B"/>
-                <text x="472" y="47" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">STATUS</text>
-                <text x="472" y="61" fill="#F4F4F6" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">SYNCED</text>
+            <!-- Arrow Down -->
+            <div class="blueprint-arrow-down" aria-hidden="true">
+              <svg width="18" height="24" viewBox="0 0 18 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="9" y1="0" x2="9" y2="20"/>
+                <polyline points="4 15 9 21 14 15"/>
               </svg>
             </div>
 
-            <!-- Monospace Live Execution Log -->
-            <div class="execution-log-wrap" id="execution-log" role="log" aria-atomic="false">
-              <div class="log-entry">
-                <span class="log-time">[14:02:11.04]</span>
-                <span class="log-msg">Webhook received from Meta Lead Ads payload (id: ld_99382)...</span>
-              </div>
-              <div class="log-entry">
-                <span class="log-time">[14:02:11.42]</span>
-                <span class="log-msg highlight">Agent qualified budget &amp; high intent (score: 94/100).</span>
-              </div>
-              <div class="log-entry">
-                <span class="log-time">[14:02:11.89]</span>
-                <span class="log-msg">RAG search returned 2 matching pricing &amp; insurance policy records.</span>
-              </div>
-              <div class="log-entry">
-                <span class="log-time">[14:02:12.10]</span>
-                <span class="log-msg success">Calendar slot booked &amp; WhatsApp confirmation dispatched (&lt; 28s SLA).</span>
+            <!-- Box 2: Custom Solution -->
+            <div class="blueprint-box">
+              <div class="blueprint-box-title solution">02 // CUSTOM FLOWFORGE SOLUTION</div>
+              <div class="blueprint-box-text">
+                Purpose-built AI agent + deterministic workflow rules tailored to your team's exact logic and tools.
               </div>
             </div>
 
-            <!-- Inspector Footer with Run Test Payload Button -->
-            <div class="inspector-footer">
-              <span class="mono" style="font-size: 11px; color: var(--color-text-muted);">
-                PAYLOAD STATUS: <strong style="color: var(--color-status-emerald);">READY</strong>
-              </span>
-              <button class="btn-test-payload" id="btn-run-payload" type="button">
-                <span>&#9654;</span> Run Test Payload
-              </button>
+            <!-- Arrow Down -->
+            <div class="blueprint-arrow-down" aria-hidden="true">
+              <svg width="18" height="24" viewBox="0 0 18 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="9" y1="0" x2="9" y2="20"/>
+                <polyline points="4 15 9 21 14 15"/>
+              </svg>
+            </div>
+
+            <!-- Box 3: Result -->
+            <div class="blueprint-box">
+              <div class="blueprint-box-title result">03 // OPERATIONAL RESULT</div>
+              <div class="blueprint-box-text">
+                Tasks handled reliably inside your existing software with zero manual busywork and clean records.
+              </div>
             </div>
           </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. SERVICES SECTION ("What We Forge" — 4-Quadrant Architectural Spec Matrix) -->
-    <section id="systems" class="structural-section" aria-labelledby="systems-title">
-      <div class="grid-container">
-        
-        <div class="section-header-block crosshair top-left top-right">
-          <div>
-            <span class="section-coordinate">[ 01 // DEPLOYABLE SYSTEMS ]</span>
-            <h2 id="systems-title" class="section-title">Engineered for specific operational bottlenecks.</h2>
-          </div>
-          <div class="section-meta-spec">
-            ARCHITECTURE: MODULAR DETERMINISTIC CORE<br>
-            DISPATCH LATENCY: SUB-SECOND<br>
-            REUSABILITY RATIO: 80% TEMPLATE / 20% ADAPTATION
-          </div>
-        </div>
-
-        <div class="services-quadrant-grid">
-          
-          <!-- SYS-01 -->
-          <article class="quadrant-card crosshair top-left">
-            <div>
-              <div class="quadrant-index">SYS-01 // INGESTION &amp; CONVERSION</div>
-              <h3 class="quadrant-title">Lead Intake &amp; Autonomous Follow-Up</h3>
-              <p class="quadrant-desc">
-                Instant multi-channel capture across WhatsApp, Web Forms, and SMS. Evaluates inbound inquiry against custom qualification rules, retrieves live knowledge base FAQs, and books qualified appointments on your sales calendar within 60 seconds.
-              </p>
-            </div>
-            
-            <div class="spec-box">
-              <div class="spec-header-row">
-                <span class="spec-mode-badge manual" id="spec-badge-1">MANUAL PROBLEM STATE</span>
-                <button class="btn-toggle-spec" data-target="1" type="button">Toggle Forged State</button>
-              </div>
-              <div class="spec-content mono" id="spec-content-1">
-                Leads sit in queue for 4+ hours. 65% drop-off rate. Repetitive FAQ questions waste 12+ sales rep hours/week.
-              </div>
-            </div>
-          </article>
-
-          <!-- SYS-02 -->
-          <article class="quadrant-card crosshair top-right">
-            <div>
-              <div class="quadrant-index">SYS-02 // TRIAGE &amp; RESOLUTION</div>
-              <h3 class="quadrant-title">Customer Query &amp; Triage Resolution</h3>
-              <p class="quadrant-desc">
-                Custom autonomous agents grounded in your verified documentation and ticketing history. Automatically resolves Tier-1 inquiries, categorizes tickets, extracts invoice/order IDs, and drafts structured context for complex edge-cases requiring human sign-off.
-              </p>
-            </div>
-
-            <div class="spec-box">
-              <div class="spec-header-row">
-                <span class="spec-mode-badge manual" id="spec-badge-2">MANUAL PROBLEM STATE</span>
-                <button class="btn-toggle-spec" data-target="2" type="button">Toggle Forged State</button>
-              </div>
-              <div class="spec-content mono" id="spec-content-2">
-                Founders/support reps drown in identical "Where is my order?" or billing questions. Slow resolution causes high churn.
-              </div>
-            </div>
-          </article>
-
-          <!-- SYS-03 -->
-          <article class="quadrant-card crosshair bottom-left">
-            <div>
-              <div class="quadrant-index">SYS-03 // NORMALIZATION &amp; PIPELINES</div>
-              <h3 class="quadrant-title">Unstructured Data Extraction &amp; Organization</h3>
-              <p class="quadrant-desc">
-                Automated ingestion of messy PDFs, vendor invoices, disordered spreadsheets, and attachments. Cleans telephone formats, fixes domain typos, standardizes financial currencies, deduplicates records, and commits verified schemas into your database.
-              </p>
-            </div>
-
-            <div class="spec-box">
-              <div class="spec-header-row">
-                <span class="spec-mode-badge manual" id="spec-badge-3">MANUAL PROBLEM STATE</span>
-                <button class="btn-toggle-spec" data-target="3" type="button">Toggle Forged State</button>
-              </div>
-              <div class="spec-content mono" id="spec-content-3">
-                Junior staff spends 15 hours/week copy-pasting numbers between PDF attachments and ERP spreadsheets with a 4% human error rate.
-              </div>
-            </div>
-          </article>
-
-          <!-- SYS-04 -->
-          <article class="quadrant-card crosshair bottom-right">
-            <div>
-              <div class="quadrant-index">SYS-04 // ORCHESTRATION &amp; BRIDGES</div>
-              <h3 class="quadrant-title">Cross-Software Process Orchestration</h3>
-              <p class="quadrant-desc">
-                Eliminates manual copy-pasting between disconnected software ecosystems. Custom deterministic API bridges synchronize records across CRMs (HubSpot, Salesforce), communications (Slack, WhatsApp), databases, and financial systems with real-time audit logs.
-              </p>
-            </div>
-
-            <div class="spec-box">
-              <div class="spec-header-row">
-                <span class="spec-mode-badge manual" id="spec-badge-4">MANUAL PROBLEM STATE</span>
-                <button class="btn-toggle-spec" data-target="4" type="button">Toggle Forged State</button>
-              </div>
-              <div class="spec-content mono" id="spec-content-4">
-                Siloed data: Webhook drops trigger no alerts. Sales reps forget to update CRM status after client calls.
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. "MANUAL VS. FORGED" INTERACTIVE OPERATIONS DIFF VIEWER -->
-    <section id="diff-viewer" class="structural-section" aria-labelledby="diff-title">
-      <div class="grid-container">
-        
-        <div class="section-header-block crosshair top-left top-right">
-          <div>
-            <span class="section-coordinate">[ 02 // OPERATIONAL DIFF ]</span>
-            <h2 id="diff-title" class="section-title">Manual operations vs. FlowForge deployed.</h2>
-          </div>
-          <div class="section-meta-spec">
-            BENCHMARK: MEASURED OVER 100 CLIENT WORKFLOWS<br>
-            THROUGHPUT MULTIPLIER: 14X<br>
-            DATA ACCURACY: DETERMINISTIC SCHEMAS
-          </div>
-        </div>
-
-        <div class="diff-table-wrap">
-          <table class="diff-table" aria-label="Operational Comparison Table">
-            <thead>
-              <tr>
-                <th scope="col">OPERATIONAL SCENARIO</th>
-                <th scope="col">WITHOUT FLOWFORGE (CONVENTIONAL)</th>
-                <th scope="col">WITH FLOWFORGE (DEPLOYED ENGINE)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="diff-scenario">
-                  <strong>Inbound High-Value Lead</strong><br>
-                  <span class="mono" style="font-size: 11px; color: var(--color-text-muted);">Timestamp: 11:30 PM (After hours)</span>
-                </td>
-                <td class="diff-manual-cell">
-                  Lead submits web form. Email sits in unmonitored inbox for 9.5 hours. Rep contacts lead next morning at 9:00 AM. Lead has already reached out to competitors.
-                  <br>
-                  <span class="diff-metric-pill danger mono">RESULT: 65% CHANCE DEAL LOST</span>
-                </td>
-                <td class="diff-forged-cell">
-                  Speed-to-Lead Engine triggers in 800ms. AI verifies budget, intent, and answers insurance FAQ from RAG. Delivers customized calendar link via WhatsApp in &lt; 45s.
-                  <br>
-                  <span class="diff-metric-pill success mono">RESULT: CALL BOOKED AT 11:31 PM</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="diff-scenario">
-                  <strong>50 Vendor Invoices Received</strong><br>
-                  <span class="mono" style="font-size: 11px; color: var(--color-text-muted);">Batch format: PDFs, scans, unorganized CSVs</span>
-                </td>
-                <td class="diff-manual-cell">
-                  Staff opens each PDF individually, types line items, tax IDs, and totals into QuickBooks/Excel. Takes 4.5 hours of manual keyboard entry. Typo rate ~3%.
-                  <br>
-                  <span class="diff-metric-pill danger mono">RESULT: 4.5 HOURS HUMAN LABOR BURNED</span>
-                </td>
-                <td class="diff-forged-cell">
-                  The Data Janitor ingests the batch, extracts entities, fixes formatting irregularities, validates against accounting schema, and commits records via API in 12 seconds.
-                  <br>
-                  <span class="diff-metric-pill success mono">RESULT: 12 SECONDS EXECUTION // 0 ERRORS</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="diff-scenario">
-                  <strong>Repetitive Support Question</strong><br>
-                  <span class="mono" style="font-size: 11px; color: var(--color-text-muted);">"Where is my order?" / "What is your return window?"</span>
-                </td>
-                <td class="diff-manual-cell">
-                  Support ticket sits in queue. Agent manually searches Zendesk/Shopify, copies tracking link, and writes a standard email reply. Average response time: 3.2 hours.
-                  <br>
-                  <span class="diff-metric-pill danger mono">RESULT: 3.2 HOUR QUEUE TIME</span>
-                </td>
-                <td class="diff-forged-cell">
-                  Triage Autopilot categorizes ticket, retrieves order status via API, drafts verified reply with tracking URL, and auto-resolves Tier-1 ticket in under 30 seconds.
-                  <br>
-                  <span class="diff-metric-pill success mono">RESULT: RESOLVED IN 22 SECONDS</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="diff-scenario">
-                  <strong>Weekly CRM &amp; Sales Hygiene</strong><br>
-                  <span class="mono" style="font-size: 11px; color: var(--color-text-muted);">Pipeline audit &amp; contact record sync</span>
-                </td>
-                <td class="diff-manual-cell">
-                  Sales reps spend Friday afternoon updating deal stages, fixing missing phone numbers, and deleting duplicate contact rows. Half of data remains incomplete.
-                  <br>
-                  <span class="diff-metric-pill danger mono">RESULT: 10 HRS LOST PER REP/MONTH</span>
-                </td>
-                <td class="diff-forged-cell">
-                  Automated background pipeline continuously deduplicates records, normalizes phone digits (+E.164), and enriches pipeline stages directly after every customer interaction.
-                  <br>
-                  <span class="diff-metric-pill success mono">RESULT: 100% CLEAN RECORDS 24/7</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
 
       </div>
     </section>
 
-    <!-- 5. HOW IT WORKS (The 4-Phase Engineering Protocol) -->
-    <section id="protocol" class="structural-section" aria-labelledby="protocol-title">
-      <div class="grid-container">
+    <!-- 3. SERVICES SECTION (Bg Block: Crisp Warm White #F7F6F2) -->
+    <section id="services" class="services-section" aria-labelledby="services-title">
+      <div class="container">
         
-        <div class="section-header-block crosshair top-left top-right">
-          <div>
-            <span class="section-coordinate">[ 03 // EXECUTION PROTOCOL ]</span>
-            <h2 id="protocol-title" class="section-title">The 4-Phase Engineering Protocol.</h2>
-          </div>
-          <div class="section-meta-spec">
-            CYCLE TIME: 7–14 DAYS TO PRODUCTION<br>
-            CODEBASE: 80% REUSABLE / 20% BESPOKE<br>
-            SECURITY: ISOLATED WORKSPACE DEPLOYMENTS
-          </div>
-        </div>
-
-        <div class="protocol-grid">
-          
-          <div class="protocol-card active" tabindex="0">
-            <div>
-              <div class="protocol-phase">PHASE 01 // AUDIT</div>
-              <h3 class="protocol-title">Bottleneck Dissection</h3>
-              <p class="protocol-desc">
-                We analyze your exact manual workflows, calculate operational leakage, and blueprint the required agent triggers, data schemas, and API bridges before writing a single line of code.
-              </p>
-            </div>
-            <span class="mono" style="font-size: 11px; color: var(--color-text-muted); margin-top: 20px;">TIMELINE: 24–48 HOURS</span>
-          </div>
-
-          <div class="protocol-card" tabindex="0">
-            <div>
-              <div class="protocol-phase">PHASE 02 // FORGE</div>
-              <h3 class="protocol-title">Custom Core Build</h3>
-              <p class="protocol-desc">
-                We adapt our tested 80% template engines, configure your private RAG knowledge base, engineer strict JSON extraction schemas, and integrate your software stack.
-              </p>
-            </div>
-            <span class="mono" style="font-size: 11px; color: var(--color-text-muted); margin-top: 20px;">TIMELINE: 4–5 BUSINESS DAYS</span>
-          </div>
-
-          <div class="protocol-card" tabindex="0">
-            <div>
-              <div class="protocol-phase">PHASE 03 // TEST</div>
-              <h3 class="protocol-title">Sandbox Stress-Test</h3>
-              <p class="protocol-desc">
-                We subject the system to adversarial edge cases, malformed payloads, rate-limit tests, and hallucination boundary checks. Human fallback routes are verified end-to-end.
-              </p>
-            </div>
-            <span class="mono" style="font-size: 11px; color: var(--color-text-muted); margin-top: 20px;">TIMELINE: 2–3 DAYS</span>
-          </div>
-
-          <div class="protocol-card" tabindex="0">
-            <div>
-              <div class="protocol-phase">PHASE 04 // DEPLOY</div>
-              <h3 class="protocol-title">Production Cutover</h3>
-              <p class="protocol-desc">
-                Zero-downtime cutover into your live workspace. Real-time telemetry monitoring, team onboarding, and SLA enforcement. We maintain, tune, and expand systems monthly.
-              </p>
-            </div>
-            <span class="mono" style="font-size: 11px; color: var(--color-text-muted); margin-top: 20px;">DEPLOYMENT: DAY 7 TO 10</span>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 6. INTERACTIVE OPERATIONAL WASTE & ROI CALCULATOR -->
-    <section id="calculator" class="structural-section" aria-labelledby="calc-title">
-      <div class="grid-container">
-        
-        <div class="section-header-block crosshair top-left top-right">
-          <div>
-            <span class="section-coordinate">[ 04 // TELEMETRY &amp; ROI CALCULATOR ]</span>
-            <h2 id="calc-title" class="section-title">Measure your team's operational leakage.</h2>
-          </div>
-          <div class="section-meta-spec">
-            MODEL: HARVARD BUSINESS REVIEW DECAY CURVE<br>
-            AVERAGE AUTOMATION RATIO: 82%<br>
-            DETERMINISTIC FINANCIAL PROJECTION
-          </div>
-        </div>
-
-        <div class="calculator-grid">
-          
-          <!-- Left Column: Precision Range Sliders -->
-          <div class="calc-controls-col">
-            
-            <div class="calc-slider-group">
-              <div class="calc-label-row">
-                <label for="slider-operators" class="calc-label">Operators / Staff Handling Routine Tasks</label>
-                <span class="calc-value-readout" id="readout-operators">4 Staff</span>
-              </div>
-              <input type="range" id="slider-operators" min="1" max="50" value="4" step="1" aria-valuemin="1" aria-valuemax="50" aria-valuenow="4">
-            </div>
-
-            <div class="calc-slider-group">
-              <div class="calc-label-row">
-                <label for="slider-hours" class="calc-label">Hours Lost to Manual Work Per Person / Week</label>
-                <span class="calc-value-readout" id="readout-hours">14 hrs/wk</span>
-              </div>
-              <input type="range" id="slider-hours" min="2" max="35" value="14" step="1" aria-valuemin="2" aria-valuemax="35" aria-valuenow="14">
-            </div>
-
-            <div class="calc-slider-group">
-              <div class="calc-label-row">
-                <label for="slider-rate" class="calc-label">Average Fully-Loaded Hourly Cost ($)</label>
-                <span class="calc-value-readout" id="readout-rate">$38 / hr</span>
-              </div>
-              <input type="range" id="slider-rate" min="15" max="150" value="38" step="1" aria-valuemin="15" aria-valuemax="150" aria-valuenow="38">
-            </div>
-
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--color-text-muted); line-height: 1.6; border-top: 1px solid var(--color-border); padding-top: 18px;">
-              * Calculations derive from industry-standard operational benchmarks. FlowForge typically achieves an 82% automation rate for repetitive triage, scheduling, and invoice data entry.
-            </div>
-          </div>
-
-          <!-- Right Column: Live Financial Ledger Output -->
-          <div class="calc-ledger-col">
-            <div>
-              <div class="ledger-item">
-                <div class="ledger-label">ANNUAL HOURS BURNED ON REPETITIVE LABOR</div>
-                <div class="ledger-metric" id="metric-hours-burned">2,912 hrs</div>
-              </div>
-
-              <div class="ledger-item">
-                <div class="ledger-label">ANNUAL CAPITAL LEAKAGE (SALARIES SPENT ON BUSYWORK)</div>
-                <div class="ledger-metric" id="metric-capital-leakage">$110,656</div>
-              </div>
-
-              <div class="ledger-item" style="border-bottom: none; padding-bottom: 0;">
-                <div class="ledger-label" style="color: var(--color-accent);">RECOVERED CAPACITY WITH FLOWFORGE (82% RATE)</div>
-                <div class="ledger-metric accent" id="metric-recovered-capacity">$90,738 / yr</div>
-              </div>
-            </div>
-
-            <!-- Capacity Comparison Visual Bar -->
-            <div class="capacity-bar-wrap">
-              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: var(--color-text-muted); margin-bottom: 6px;">
-                <span>AUTOMATED EXECUTION: 82%</span>
-                <span>HUMAN SUPERVISION: 18%</span>
-              </div>
-              <div class="capacity-bar-track" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
-                <div class="capacity-bar-fill" style="width: 82%;"></div>
-                <div style="width: 18%; background-color: var(--color-border-strong);"></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 7. ABOUT FLOWFORGE (Engineering Manifesto & Team Philosophy) -->
-    <section id="manifesto" class="structural-section" aria-labelledby="manifesto-title">
-      <div class="grid-container">
-        
-        <div class="section-header-block crosshair top-left top-right">
-          <div>
-            <span class="section-coordinate">[ 05 // MANIFESTO &amp; PHILOSOPHY ]</span>
-            <h2 id="manifesto-title" class="section-title">Engineering Manifesto.</h2>
-          </div>
-          <div class="section-meta-spec">
-            DOCTRINE: DETERMINISTIC CODE OVER PROMPT PRAYERS<br>
-            STANDARD: INDUSTRIAL RELIABILITY<br>
-            ZERO FLUFF GUARANTEE
-          </div>
-        </div>
-
-        <div class="manifesto-wrap">
-          <h3 class="manifesto-headline">
-            "We don't sell AI hype. We build working machinery."
-          </h3>
-          <p class="manifesto-copy">
-            The market is saturated with brittle wrapper apps, toy chat interfaces, and unverified promises. Most companies deploy an AI tool that their team abandons within three weeks because it lacks guardrails, hallucinates data, or doesn't tie into their daily database. FlowForge was founded on the opposite premise: engineering invisible, deterministic automation infrastructure that silently eliminates hundreds of human-hours every month.
+        <div class="section-head">
+          <span class="mono-label">01 / SERVICES</span>
+          <h2 id="services-title">What we build</h2>
+          <p>
+            We focus on three core areas where custom automation solves real operational problems.
           </p>
+        </div>
 
-          <div class="guarantees-grid">
-            <div class="guarantee-cell">
-              <div class="guarantee-num">01 // PRINCIPLE</div>
-              <h4 class="guarantee-title">Problem-First Engineering</h4>
-              <p class="guarantee-desc">
-                We never force AI where a simple deterministic script or webhook solves the problem faster. We only engineer AI where complex natural language understanding is strictly required.
+        <div class="services-grid">
+          
+          <!-- Card 1: AI Automation -->
+          <article class="service-card">
+            <span class="service-num">01 // AUTOMATION</span>
+            <h3 class="service-title">AI Automation</h3>
+            <p class="service-focus">
+              Automating routine, rule-based, and judgment-based tasks that eat up your team's day.
+            </p>
+            <div class="service-examples-box">
+              <div class="service-examples-label">Examples of what we build:</div>
+              <p class="service-examples-text">
+                Extracting information from documents or emails, categorizing incoming requests, summarizing updates, and keeping data organized automatically.
               </p>
             </div>
+          </article>
 
-            <div class="guarantee-cell">
-              <div class="guarantee-num">02 // PRINCIPLE</div>
-              <h4 class="guarantee-title">Native to Your Stack</h4>
-              <p class="guarantee-desc">
-                Your team does not need to learn another complex software dashboard. Our systems plug directly into your existing WhatsApp, Gmail, Slack, HubSpot, and internal databases.
+          <!-- Card 2: Workflow Automation -->
+          <article class="service-card">
+            <span class="service-num">02 // WORKFLOWS</span>
+            <h3 class="service-title">Workflow Automation</h3>
+            <p class="service-focus">
+              Connecting the tools you already use so information moves without manual copy-pasting.
+            </p>
+            <div class="service-examples-box">
+              <div class="service-examples-label">Examples of what we build:</div>
+              <p class="service-examples-text">
+                Automatically routing new inquiries from forms or messages into your spreadsheet or CRM, triggering follow-ups, and keeping records in sync.
               </p>
             </div>
+          </article>
 
-            <div class="guarantee-cell">
-              <div class="guarantee-num">03 // PRINCIPLE</div>
-              <h4 class="guarantee-title">Deterministic Guardrails</h4>
-              <p class="guarantee-desc">
-                Every AI prompt is bounded by strict Pydantic/Zod schema validation. If an AI agent encounters uncertainty, it seamlessly flags the thread for human approval with a pre-drafted summary.
+          <!-- Card 3: Custom AI Agents -->
+          <article class="service-card">
+            <span class="service-num">03 // AGENTS</span>
+            <h3 class="service-title">Custom AI Agents</h3>
+            <p class="service-focus">
+              Purpose-built AI systems designed for a specific role in your business—not a generic chatbot.
+            </p>
+            <div class="service-examples-box">
+              <div class="service-examples-label">Examples of what we build:</div>
+              <p class="service-examples-text">
+                Agents that handle initial lead follow-ups, answer common customer questions using your business info, or assist your team with daily operations.
               </p>
             </div>
-          </div>
+          </article>
+
         </div>
 
       </div>
     </section>
 
-    <!-- 8. CONTACT SECTION ("The Bottleneck Diagnostic Terminal") -->
-    <section id="diagnostic" class="structural-section" aria-labelledby="diagnostic-title">
-      <div class="grid-container">
+    <!-- 4. HOW IT WORKS SECTION (Bg Block: Warm Stone #EAE8E1) -->
+    <section id="how-it-works" class="process-section" aria-labelledby="process-title">
+      <div class="container">
         
-        <div class="section-header-block crosshair top-left top-right">
-          <div>
-            <span class="section-coordinate">[ 06 // INITIATE DIAGNOSTIC ]</span>
-            <h2 id="diagnostic-title" class="section-title">The Bottleneck Diagnostic Terminal.</h2>
-          </div>
-          <div class="section-meta-spec">
-            DIAGNOSTIC TURNAROUND: &lt; 4 BUSINESS HOURS<br>
-            DELIVERABLE: 1-PAGE VISUAL BLUEPRINT &amp; ARCHITECTURE SPEC<br>
-            COST: ZERO (TROJAN HORSE PILOT AUDIT)
-          </div>
+        <div class="section-head">
+          <span class="mono-label">02 / HOW IT WORKS</span>
+          <h2 id="process-title">A straightforward, four-step process</h2>
+          <p>
+            We don't force pre-made software onto your team. Every solution starts with understanding how you currently work.
+          </p>
         </div>
 
-        <div class="diagnostic-grid">
+        <div class="steps-grid">
           
-          <!-- Left Column: Instructions & Clickable Presets -->
-          <div class="diagnostic-left-col">
-            <p class="diagnostic-instructions">
-              Submit the exact manual bottleneck slowing down your operations. Within 4 business hours, an engineering partner will map your current process against a FlowForge automated blueprint with estimated ROI.
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3 class="step-title">Understand the problem</h3>
+            <p class="step-desc">
+              You walk us through the repetitive task or bottleneck slowing you down. We look at your current process and figure out what actually makes sense to automate.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3 class="step-title">Design a solution</h3>
+            <p class="step-desc">
+              We map out a clear, practical plan for the workflow or AI agent so you know exactly how it will work before we build it.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3 class="step-title">Build and test</h3>
+            <p class="step-desc">
+              We build the custom automation and test it thoroughly with real scenarios to make sure it is reliable, accurate, and easy to use.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3 class="step-title">Implement</h3>
+            <p class="step-desc">
+              We set the system up inside your workflow and make sure your team is comfortable using it day to day.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. ABOUT SECTION (Two-Tone Split: Matte Black & Off-White) -->
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <div class="container">
+        
+        <div class="about-split-grid">
+          
+          <!-- Left Column: Mission in Matte Black -->
+          <div class="about-left-col">
+            <span class="mono-label">03 / ABOUT FLOWFORGE</span>
+            <h2 id="about-title" class="about-headline">
+              Practical problem-solving over AI hype.
+            </h2>
+            <p class="about-copy">
+              Most businesses know AI can save them time, but they don't have the time to figure out which tools to use or how to wire them together. Our mission at FlowForge is simple: listen to the actual problems businesses face every day, and build clean, dependable automations that solve them.
+            </p>
+          </div>
+
+          <!-- Right Column: Principles in Crisp White -->
+          <div class="about-right-col">
+            <div class="about-principle">
+              <h3 class="principle-title">Built around your problem</h3>
+              <p class="principle-text">
+                We start by listening to what wastes your time, rather than pushing a one-size-fits-all product.
+              </p>
+            </div>
+
+            <div class="about-principle">
+              <h3 class="principle-title">Simple and maintainable</h3>
+              <p class="principle-text">
+                We keep solutions as simple as possible so they don't break or confuse your team.
+              </p>
+            </div>
+
+            <div class="about-principle">
+              <h3 class="principle-title">Direct collaboration</h3>
+              <p class="principle-text">
+                You work directly with the builders designing and testing your system.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. CONTACT / GET STARTED SECTION (Warm Paper #F7F6F2) -->
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="container">
+        
+        <div class="contact-layout">
+          
+          <!-- Left Column: Context -->
+          <div class="contact-info-col">
+            <span class="mono-label" style="color: var(--color-accent); display: block; margin-bottom: 12px;">04 / GET STARTED</span>
+            <h2 id="contact-title">Tell us what's taking up your time</h2>
+            <p>
+              Have a repetitive task or workflow problem in mind? Describe it below and we'll get back to you to discuss how we can automate it.
             </p>
 
-            <div class="sample-problem-wrap">
-              <span class="sample-label">Or Load a Real Industry Problem Preset:</span>
-              <div class="sample-btn-group">
-                <button class="btn-sample-preset" type="button" data-preset="dental">
-                  [Sample: Healthcare / Dental Lead Delay]
-                </button>
-                <button class="btn-sample-preset" type="button" data-preset="ecommerce">
-                  [Sample: E-Commerce Support Ticket Overload]
-                </button>
-                <button class="btn-sample-preset" type="button" data-preset="invoice">
-                  [Sample: Accounting Vendor Invoice Entry]
-                </button>
+            <div class="contact-detail-row">
+              <div class="contact-detail-item">
+                <div class="detail-label">Response Time</div>
+                <div class="detail-value">Within 24 business hours</div>
+              </div>
+              <div class="contact-detail-item">
+                <div class="detail-label">Direct Communication</div>
+                <div class="detail-value">You speak directly with the engineers building the solution</div>
               </div>
             </div>
           </div>
 
-          <!-- Right Column: Structured Diagnostic Intake Form -->
-          <div class="diagnostic-form-col">
-            <form id="diagnostic-form" novalidate>
+          <!-- Right Column: High-Contrast Form Card -->
+          <div class="contact-form-card">
+            
+            <form id="lead-contact-form" novalidate>
               
-              <!-- 01. Primary Bottlenecks -->
-              <div class="form-field-group">
-                <label class="form-label">01. Select Primary Bottleneck(s)</label>
-                <div class="toggle-tag-wrap" id="bottleneck-tags" role="group" aria-label="Select Bottlenecks">
-                  <div class="toggle-tag selected" tabindex="0" role="checkbox" aria-checked="true" data-val="Lead Follow-Up">Lead Follow-Up</div>
-                  <div class="toggle-tag" tabindex="0" role="checkbox" aria-checked="false" data-val="Customer Queries">Customer Queries</div>
-                  <div class="toggle-tag" tabindex="0" role="checkbox" aria-checked="false" data-val="Data Organization">Data Organization</div>
-                  <div class="toggle-tag" tabindex="0" role="checkbox" aria-checked="false" data-val="Internal Workflows">Internal Workflows</div>
-                  <div class="toggle-tag" tabindex="0" role="checkbox" aria-checked="false" data-val="Custom Agent">Custom Agent</div>
+              <!-- Field 1: Name -->
+              <div class="form-group">
+                <label for="user-name" class="form-label">Your Name <span style="color: var(--color-accent);">*</span></label>
+                <input type="text" id="user-name" class="form-control-input" placeholder="e.g., Alex Miller" required>
+              </div>
+
+              <!-- Field 2: Email or Phone -->
+              <div class="form-group">
+                <label for="user-contact" class="form-label">Email or Phone Number <span style="color: var(--color-accent);">*</span></label>
+                <input type="text" id="user-contact" class="form-control-input" placeholder="e.g., alex@company.com or (555) 000-0000" required>
+              </div>
+
+              <!-- Field 3: Business / Industry -->
+              <div class="form-group">
+                <label for="user-business" class="form-label">Business / Industry <span style="font-weight: 400; color: #74747e;">(Optional)</span></label>
+                <input type="text" id="user-business" class="form-control-input" placeholder="e.g., Dental clinic, Real estate, E-commerce">
+              </div>
+
+              <!-- Field 4: Area to Automate -->
+              <div class="form-group">
+                <label class="form-label">What area do you want to automate?</label>
+                <div class="pills-group" id="automation-areas" role="group" aria-label="Select areas to automate">
+                  <button type="button" class="pill-option selected" data-value="Lead Follow-up">Lead Follow-up</button>
+                  <button type="button" class="pill-option" data-value="Customer Queries">Customer Queries</button>
+                  <button type="button" class="pill-option" data-value="Data &amp; Spreadsheets">Data &amp; Spreadsheets</button>
+                  <button type="button" class="pill-option" data-value="Routine Admin Tasks">Routine Admin Tasks</button>
+                  <button type="button" class="pill-option" data-value="Not Sure Yet">Not Sure Yet</button>
                 </div>
               </div>
 
-              <!-- 02. Current Software Stack -->
-              <div class="form-field-group">
-                <label class="form-label">02. Current Software Stack</label>
-                <div class="toggle-tag-wrap" id="stack-tags" role="group" aria-label="Select Software Stack">
-                  <div class="toggle-tag selected" tabindex="0" role="checkbox" aria-checked="true" data-val="WhatsApp">WhatsApp</div>
-                  <div class="toggle-tag selected" tabindex="0" role="checkbox" aria-checked="true" data-val="HubSpot / CRM">HubSpot / CRM</div>
-                  <div class="toggle-tag" tabindex="0" role="checkbox" aria-checked="false" data-val="Gmail / Outlook">Gmail / Outlook</div>
-                  <div class="toggle-tag selected" tabindex="0" role="checkbox" aria-checked="true" data-val="Google Sheets / Excel">Google Sheets / Excel</div>
-                  <div class="toggle-tag" tabindex="0" role="checkbox" aria-checked="false" data-val="Slack">Slack</div>
-                  <div class="toggle-tag" tabindex="0" role="checkbox" aria-checked="false" data-val="Custom DB">Custom DB</div>
-                </div>
-              </div>
-
-              <!-- 03. Describe Repetitive Task -->
-              <div class="form-field-group">
-                <label for="task-desc" class="form-label">03. Describe the Repetitive Task</label>
-                <textarea id="task-desc" class="form-textarea" placeholder="What repetitive process is currently eating up your team's week? Walk us through how it's done manually today..." required></textarea>
-              </div>
-
-              <!-- 04. Contact Coordinates -->
-              <div class="form-field-group">
-                <label class="form-label">04. Contact Coordinates</label>
-                <div class="form-coords-row">
-                  <div>
-                    <input type="text" id="contact-name" class="form-input-text" placeholder="Full Name" required>
-                  </div>
-                  <div>
-                    <input type="email" id="contact-email" class="form-input-text" placeholder="Work Email" required>
-                  </div>
-                  <div>
-                    <input type="text" id="contact-company" class="form-input-text" placeholder="Company Name" required>
-                  </div>
-                </div>
+              <!-- Field 5: Describe Problem -->
+              <div class="form-group">
+                <label for="user-problem" class="form-label">Describe the problem or repetitive task <span style="color: var(--color-accent);">*</span></label>
+                <textarea id="user-problem" class="form-control-textarea" placeholder="For example: We spend 2 hours every day replying to the same customer questions and copying their details into a spreadsheet..." required></textarea>
               </div>
 
               <!-- Submit Button -->
-              <button type="submit" class="btn-signal-orange" id="btn-submit-diagnostic" style="width: 100%; justify-content: center; min-height: 52px;">
-                TRANSMIT PROBLEM SPEC &amp; REQUEST BLUEPRINT -&gt;
+              <button type="submit" class="btn-form-submit" id="btn-submit-contact">
+                Send Message &rarr;
               </button>
             </form>
 
-            <!-- Terminal Confirmation Screen -->
-            <div class="terminal-receipt-box" id="diagnostic-receipt" role="alert" aria-live="polite">
-              <div class="receipt-header">[TRANSMISSION CONFIRMED // SPEC RECEIVED]</div>
-              <div style="margin-bottom: 8px;">REFERENCE ID: <strong id="receipt-id" style="color: var(--color-accent);">FF-2026-884A</strong></div>
-              <div style="margin-bottom: 8px;">STATUS: <span style="color: var(--color-status-emerald);">QUEUED FOR BOTTLENECK DISSECTION</span></div>
-              <div style="margin-bottom: 8px;">TIMESTAMP: <span id="receipt-timestamp" class="mono">2026-10-15T14:32:00Z</span></div>
-              <p style="margin-top: 14px; border-top: 1px solid var(--color-border); padding-top: 12px; font-size: 11px;">
-                An engineering lead has received your operational parameters. We are generating your visual workflow blueprint and will dispatch the technical spec to your email within 4 business hours.
+            <!-- Honest Confirmation State -->
+            <div class="confirmation-box" id="contact-confirmation" role="alert" aria-live="polite">
+              <h3 class="confirmation-title">Message Received</h3>
+              <p class="confirmation-text">
+                Thank you for reaching out. We've received your details and will get back to you shortly to discuss your workflow.
               </p>
-              <button type="button" class="btn-architectural" id="btn-reset-form" style="margin-top: 16px; font-size: 11px; padding: 6px 14px;">
-                &lt;- Transmit Another Specification
+              <button type="button" class="btn-secondary-white" id="btn-send-another" style="padding: 10px 18px; font-size: 13px;">
+                &larr; Send another message
               </button>
             </div>
 
@@ -735,65 +366,38 @@
     </section>
   </main>
 
-  <!-- 9. ARCHITECTURAL FOOTER -->
-  <footer class="footer-section" role="contentinfo">
-    <div class="grid-container" style="border: none;">
-      
-      <div class="footer-top-grid">
+  <!-- 7. FOOTER (Deep Matte Black #0A0A0C) -->
+  <footer class="footer-dark" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
         <div>
-          <div class="footer-wordmark">FLOWFORGE</div>
+          <div class="footer-brand-title">FlowForge</div>
           <p class="footer-tagline">
-            Industrial-grade B2B AI automation and autonomous operations engineering. We engineer custom machinery for teams drowning in manual busywork.
+            Custom AI automation solutions and autonomous workflows built for real business problems.
           </p>
         </div>
 
-        <div>
-          <div class="footer-col-title">Systems</div>
-          <ul class="footer-link-list">
-            <li><a href="#systems">Lead Intake Engine</a></li>
-            <li><a href="#systems">Triage Autopilot</a></li>
-            <li><a href="#systems">The Data Janitor</a></li>
-            <li><a href="#systems">API Orchestration</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Protocol</div>
-          <ul class="footer-link-list">
-            <li><a href="#protocol">Bottleneck Audit</a></li>
-            <li><a href="#protocol">Core Engineering</a></li>
-            <li><a href="#protocol">Sandbox Stress-Test</a></li>
-            <li><a href="#diff-viewer">Operational Diff</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Terminal</div>
-          <ul class="footer-link-list">
-            <li><a href="#calculator">ROI Calculator</a></li>
-            <li><a href="#diagnostic">Initiate Diagnostic</a></li>
-            <li><a href="#manifesto">Manifesto</a></li>
-            <li><a href="/api/health" target="_blank" rel="noopener">Telemetry API</a></li>
-          </ul>
-        </div>
+        <nav class="footer-links" aria-label="Footer Navigation">
+          <a href="#hero" class="footer-link">Home</a>
+          <a href="#services" class="footer-link">Services</a>
+          <a href="#how-it-works" class="footer-link">How It Works</a>
+          <a href="#about" class="footer-link">About</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </nav>
       </div>
 
-      <div class="footer-bottom-row">
+      <div class="footer-bottom">
         <div>
-          &copy; 2026 FLOWFORGE ENGINEERING CORP. ALL RIGHTS RESERVED.
+          &copy; 2026 FlowForge. All rights reserved.
         </div>
-        <div>
-          [ PROTOCOL: SECURE // REPO: GITHUB/RANA-KUSHAGR/FLOW-FORGE ]
-        </div>
-        <div>
-          SYSTEM STATUS: <span style="color: var(--color-status-emerald);">ALL NODES OPERATIONAL</span>
+        <div style="font-family: var(--font-mono); font-size: 11px;">
+          Practical problem-solving over AI hype.
         </div>
       </div>
-
     </div>
   </footer>
 
-  <!-- Interactive Client Scripts -->
+  <!-- Scripts -->
   <script src="app.js"></script>
 </body>
 </html>
