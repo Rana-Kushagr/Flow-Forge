@@ -196,18 +196,17 @@ body {
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  /* Strong dark veil on the LEFT (where text lives), fades to solid black on right */
   background: 
     linear-gradient(to right, 
-      rgba(10, 10, 12, 0.88) 0%,   /* very dark behind text */
-      rgba(10, 10, 12, 0.75) 30%,
-      rgba(10, 10, 12, 0.88) 55%,
-      #0a0a0c 72%, 
+      rgba(10, 10, 12, 0.72) 0%,
+      rgba(10, 10, 12, 0.55) 35%,
+      rgba(10, 10, 12, 0.82) 60%,
+      #0a0a0c 75%, 
       #0a0a0c 100%),
     linear-gradient(to top, 
       rgba(10, 10, 12, 0.95) 0%, 
-      transparent 20%, 
-      transparent 80%, 
+      transparent 18%, 
+      transparent 82%, 
       rgba(10, 10, 12, 0.95) 100%);
 }
 
@@ -223,11 +222,6 @@ body {
 .hero-content-col {
   position: relative;
   z-index: 2;
-  /* Solid opaque dark backing panel behind all text — no light bleeds through */
-  background: rgba(10, 10, 12, 0.72);
-  padding: 40px 44px 40px 0;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 }
 
 .hero-tag {
@@ -237,6 +231,10 @@ body {
   padding: 5px 12px;
   display: inline-block;
   margin-bottom: 24px;
+  /* text-shadow on mono label for legibility */
+  text-shadow:
+    0 0 12px rgba(0,0,0,1),
+    0 2px 8px rgba(0,0,0,1);
 }
 
 .hero-title {
@@ -247,7 +245,17 @@ body {
   letter-spacing: -0.035em;
   color: #ffffff;
   margin-bottom: 24px;
-  text-shadow: none;
+  /* Thick dark halo — makes white text legible over ANY background */
+  text-shadow:
+    0 0 2px rgba(0,0,0,1),
+    0 0 8px rgba(0,0,0,1),
+    0 2px 12px rgba(0,0,0,0.98),
+    0 4px 24px rgba(0,0,0,0.95),
+    0 8px 40px rgba(0,0,0,0.9),
+    1px 1px 0 rgba(0,0,0,0.9),
+    -1px -1px 0 rgba(0,0,0,0.9),
+    1px -1px 0 rgba(0,0,0,0.9),
+    -1px 1px 0 rgba(0,0,0,0.9);
 }
 
 .hero-title .serif-italic {
@@ -259,11 +267,15 @@ body {
 .hero-subtitle {
   font-size: 17px;
   line-height: 1.7;
-  color: #d4d4da;
-  font-weight: 400;
+  color: #f0f0f2;
+  font-weight: 500;
   margin-bottom: 36px;
   max-width: 520px;
-  text-shadow: none;
+  text-shadow:
+    0 0 4px rgba(0,0,0,1),
+    0 1px 8px rgba(0,0,0,1),
+    0 3px 16px rgba(0,0,0,0.95),
+    0 6px 28px rgba(0,0,0,0.9);
 }
 
 .hero-actions {
