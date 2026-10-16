@@ -98,6 +98,21 @@ body {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-dark-border);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 2px bottom progress bar anchored to sticky nav-header */
+.nav-header .scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px rgba(232, 74, 21, 0.9), 0 0 16px rgba(232, 74, 21, 0.4);
+  z-index: 102;
+  pointer-events: none;
+  transition: width 0.05s ease-out;
 }
 
 .nav-inner {
@@ -105,6 +120,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 68px;
+  position: relative;
 }
 
 .brand-link {
@@ -131,9 +147,25 @@ body {
   color: var(--color-dark-text-secondary);
   text-decoration: none;
   transition: color 0.15s ease;
+  position: relative;
+  padding: 6px 0;
 }
-.nav-item:hover, .nav-item:focus-visible {
+.nav-item:hover, .nav-item:focus-visible, .nav-item.active {
   color: #ffffff;
+}
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 1px;
+}
+.nav-item.active::after {
+  width: 100%;
 }
 
 .nav-cta-btn {
@@ -191,6 +223,9 @@ body {
   object-position: left 70%;
   opacity: 0.9;
   filter: contrast(1.1) brightness(0.75) saturate(0.95);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.08s linear;
 }
 
 .hero-bg-overlay {
@@ -323,25 +358,123 @@ body {
   background-color: #f0eee8;
 }
 
-/* Right Blueprint Card: Clean Static Diagram (No Fake Data) */
+/* Right Blueprint Card: Interactive Scenario Engine (React/State-Driven) */
 .blueprint-card {
   background-color: rgba(14, 14, 18, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid #282830;
   box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.75);
-  padding: 36px 32px;
+  padding: 32px 28px;
   border-radius: 12px;
   position: relative;
 }
 
 .blueprint-header {
   border-bottom: 1px solid var(--color-dark-border);
-  padding-bottom: 16px;
-  margin-bottom: 24px;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.blueprint-header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blueprint-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #34d399;
+  box-shadow: 0 0 6px #34d399;
+  animation: livePulse 1.8s infinite ease-in-out;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+/* Scenario Switcher Tabs */
+.scenario-tabs-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 20px;
+  background: rgba(8, 8, 10, 0.75);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--color-dark-border);
+}
+
+.scenario-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px 8px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-dark-text-secondary);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.scenario-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+.scenario-tab-btn.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.tab-title {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.01em;
+}
+
+.scenario-progress-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.scenario-progress-bar {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--color-accent);
+  border-radius: 1px;
+  transition: width 0.08s linear;
+}
+.scenario-tab-btn.active .scenario-progress-bar {
+  box-shadow: 0 0 6px var(--color-accent);
 }
 
 .blueprint-box {
@@ -367,17 +500,36 @@ body {
 .blueprint-box-title.result { color: #34d399; }
 
 .blueprint-box-text {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--color-dark-text-primary);
   line-height: 1.5;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.blueprint-box-text.text-transitioning {
+  opacity: 0;
+  transform: translateY(4px);
 }
 
-.blueprint-arrow-down {
+/* Traveling Signal Pulse Connector Lines */
+.blueprint-connector {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px 0;
-  color: var(--color-dark-text-muted);
+  height: 28px;
+  position: relative;
+}
+.blueprint-connector svg {
+  display: block;
+  overflow: visible;
+}
+.connector-pulse-circle {
+  animation: connectorSignal 2.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes connectorSignal {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(34px); opacity: 0; }
 }
 
 /* ==========================================================================
@@ -466,13 +618,201 @@ body {
   font-size: 15px;
   line-height: 1.6;
   color: var(--color-light-text-secondary);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
+/* Interactive Visual Schematics Inside Each Service Card */
+.service-schematic-wrap {
+  height: 62px;
+  background: #f4f3ed;
+  border: 1px solid var(--color-light-border);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  overflow: hidden;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+.service-card:hover .service-schematic-wrap {
+  background-color: #ece9df;
+  border-color: #c9c5ba;
+}
+
+/* Schematic 1: Doc to Tags */
+.schematic-doc-transform {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+.schematic-doc-source {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.schematic-doc-source svg {
+  transition: transform 0.25s ease;
+}
+.service-card:hover .schematic-doc-source svg {
+  transform: translateY(-2px);
+}
+.schematic-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-light-text-secondary);
+  font-weight: 500;
+}
+.schematic-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--color-accent);
+}
+.schematic-arrow svg path {
+  stroke-dasharray: 28;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.4s ease;
+}
+.service-card:hover .schematic-arrow svg path {
+  animation: arrowFlow 1.2s infinite linear;
+}
+@keyframes arrowFlow {
+  0% { stroke-dashoffset: 28; }
+  100% { stroke-dashoffset: 0; }
+}
+.schematic-tags-target {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+.schematic-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+.service-card:hover .schematic-tag {
+  transform: scale(1.05);
+}
+.tag-orange { background: #ffece5; color: #d03d0d; border: 1px solid #ffd4c4; }
+.tag-stone { background: #e6e3da; color: #4a4a52; border: 1px solid #d4d0c5; }
+.tag-green { background: #e6f9f0; color: #059669; border: 1px solid #bbf7d0; }
+
+/* Schematic 2: 3 Connected Pipeline Nodes */
+.schematic-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.pipe-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.node-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: #ffffff;
+  border: 1px solid var(--color-light-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a4a52;
+  transition: all 0.25s ease;
+}
+.node-active .node-icon {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: #fff5f0;
+}
+.service-card:hover .node-icon {
+  border-color: #0a0a0c;
+  color: #0a0a0c;
+}
+.node-text {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-light-text-secondary);
+}
+.pipe-bridge {
+  flex: 1;
+  height: 2px;
+  background: #d4d0c5;
+  margin: 0 6px;
+  position: relative;
+  overflow: hidden;
+}
+.pipe-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: var(--color-accent);
+  animation: bridgeTravel 1.6s infinite ease-in-out;
+}
+@keyframes bridgeTravel {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
+/* Schematic 3: Query Branching */
+.schematic-agent-branch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.branch-pill {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 8px;
+  background: #0a0a0c;
+  color: #ffffff;
+  border-radius: 4px;
+}
+.branch-fork {
+  margin: 0 4px;
+}
+.fork-path {
+  transition: stroke 0.25s ease;
+}
+.service-card:hover .fork-path {
+  stroke: var(--color-accent);
+}
+.branch-out {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.branch-subpill {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+.sub-context { background: #e5e3db; color: #4a4a52; border: 1px solid #d4d0c5; }
+.sub-reply { background: #fff1eb; color: var(--color-accent); border: 1px solid #ffd8c7; font-weight: 600; }
+.service-card:hover .sub-reply {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Service Examples & Interactive Pills */
 .service-examples-box {
   margin-top: auto;
   border-top: 1px solid var(--color-light-border);
-  padding-top: 20px;
+  padding-top: 18px;
 }
 
 .service-examples-label {
@@ -484,10 +824,47 @@ body {
   margin-bottom: 8px;
 }
 
-.service-examples-text {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--color-light-text-primary);
+.service-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.service-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #383840;
+  background: #f0eeea;
+  border: 1px solid #dedbd2;
+  padding: 3px 8px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.service-card:hover .service-pill {
+  background: #ffffff;
+  border-color: #c8c5b9;
+  color: #0a0a0c;
+}
+
+/* Direct "Automate This →" link */
+.service-automate-link {
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: gap 0.2s ease, color 0.15s ease;
+  align-self: flex-start;
+}
+.service-automate-link:hover, .service-automate-link:focus-visible {
+  color: var(--color-accent-hover);
+  gap: 10px;
 }
 
 /* ==========================================================================
@@ -499,6 +876,28 @@ body {
   color: var(--color-light-text-primary);
   padding: 96px 0;
   border-bottom: 1px solid var(--color-stone-border);
+  position: relative;
+}
+
+/* Continuous Architectural Progress Line */
+.steps-progress-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+.steps-progress-track {
+  width: 100%;
+  height: 3px;
+  background: #d8d5cb;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.steps-progress-bar {
+  height: 100%;
+  width: 25%;
+  background: var(--color-accent);
+  transition: width 0.12s linear;
+  box-shadow: 0 0 10px rgba(232, 74, 21, 0.7);
 }
 
 .steps-grid {
@@ -514,23 +913,27 @@ body {
   border-radius: 10px;
   display: grid;
   overflow: visible;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.3s ease;
 }
 .step-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  border-color: #0a0a0c;
+  box-shadow: 0 14px 28px -8px rgba(0, 0, 0, 0.14);
 }
-.step-card.in-view {
-  border-color: #bbb8ac;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
+.step-card.active, .step-card.in-view {
+  border-color: #0a0a0c !important;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.16);
 }
-.step-card.in-view .step-number {
+.step-card.active .step-number, .step-card.in-view .step-number {
   color: var(--color-accent);
   transform: scale(1.06);
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
+
 .step-card .border-glow-inner {
-  padding: 36px 28px;
+  padding: 34px 26px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -544,6 +947,7 @@ body {
   color: #0a0a0c;
   line-height: 1;
   margin-bottom: 20px;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .step-title {
@@ -559,6 +963,30 @@ body {
   font-size: 14px;
   line-height: 1.6;
   color: var(--color-light-text-secondary);
+}
+
+/* Stage Deliverable Badge */
+.step-deliverable {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #e8e5dc;
+}
+.deliverable-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #4a4a52;
+  background: #f0ede6;
+  border: 1px solid #dcd8cd;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.25s ease;
+}
+.step-card:hover .deliverable-tag, .step-card.active .deliverable-tag, .step-card.in-view .deliverable-tag {
+  background: #0a0a0c;
+  border-color: #0a0a0c;
+  color: #ffffff;
 }
 
 /* ==========================================================================
@@ -613,8 +1041,21 @@ body {
 
 .about-copy {
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--color-dark-text-secondary);
+}
+
+/* Scroll-Scrubbed Mission Statement */
+.about-scrub-sentence {
+  color: var(--color-dark-text-muted);
+  transition: color 0.4s ease, opacity 0.4s ease;
+  opacity: 0.42;
+  display: inline;
+}
+.about-scrub-sentence.illuminated {
+  color: #ffffff;
+  opacity: 1;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.22);
 }
 
 .about-right-col {
@@ -626,21 +1067,41 @@ body {
   gap: 16px;
 }
 
+/* Interactive Principle Cards with Spring Hover Expanding Border */
 .about-principle {
   background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid var(--color-light-border);
-  overflow: visible;
+  overflow: hidden;
   padding: 0;
   display: grid;
-  transition: transform 0.25s ease;
+  position: relative;
+  cursor: default;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, border-color 0.25s ease;
+}
+.about-principle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--color-accent);
+  transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+  z-index: 5;
 }
 .about-principle:hover {
-  transform: translateY(-2px);
+  transform: translateX(4px);
+  border-color: #c9c5ba;
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.12);
+}
+.about-principle:hover::before {
+  width: 8px;
+  box-shadow: 2px 0 12px rgba(232, 74, 21, 0.45);
 }
 .about-principle .border-glow-inner {
-  padding: 24px 24px;
-  border-left: 3px solid var(--color-accent);
+  padding: 24px 24px 24px 28px;
+  border-left: none;
   border-radius: 10px;
 }
 
@@ -746,7 +1207,7 @@ body {
   padding: 12px 14px;
   border-radius: 0;
   outline: none;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .form-control-input:focus, .form-control-textarea:focus {
   border-color: #0a0a0c;
@@ -756,6 +1217,69 @@ body {
   min-height: 110px;
   resize: vertical;
   line-height: 1.5;
+}
+
+/* Quick-Fill Prompt Starter Chips */
+.prompt-starters-wrap {
+  margin-bottom: 14px;
+}
+.prompt-starters-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-light-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.prompt-chips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.prompt-chip {
+  text-align: left;
+  background: #f7f6f2;
+  border: 1px dashed var(--color-light-border-strong);
+  color: #383840;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+.prompt-chip:hover, .prompt-chip:focus-visible {
+  background: #ffffff;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateX(3px);
+}
+.chip-icon {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* Field Highlight Pulse */
+.field-highlight {
+  animation: fieldFlash 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes fieldFlash {
+  0% {
+    outline: 2px solid var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 16px rgba(232, 74, 21, 0.5);
+  }
+  100% {
+    outline: 2px solid transparent;
+    border-color: var(--color-light-border-strong);
+    box-shadow: 0 0 0 rgba(232, 74, 21, 0);
+  }
 }
 
 /* Category Checkbox Pills */
@@ -1161,43 +1685,47 @@ body {
   box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.8);
 }
 
-/* 3. Smooth Scroll-Triggered Reveal Elements */
+/* 3. Smooth Scroll-Triggered Reveal Elements (Cubic-Bezier [0.22, 1, 0.36, 1]) */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  clip-path: inset(0 0 8% 0);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              clip-path 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, clip-path;
 }
 
 .scroll-reveal.is-revealed {
   opacity: 1;
   transform: translateY(0);
+  clip-path: inset(0 0 0 0);
 }
 
 /* Staggered reveals for child items in grids */
-.reveal-stagger > *:nth-child(1) { transition-delay: 0.04s; }
-.reveal-stagger > *:nth-child(2) { transition-delay: 0.14s; }
-.reveal-stagger > *:nth-child(3) { transition-delay: 0.24s; }
-.reveal-stagger > *:nth-child(4) { transition-delay: 0.34s; }
+.reveal-stagger > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 0.35s; }
 
 /* 4. Service Card Subtle Hover Lift */
 .service-card {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.3s ease;
 }
 .service-card:hover {
-  transform: translateY(-4px);
-  border-color: #c0bcb0;
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+  border-color: #0a0a0c;
+  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.12);
 }
 
 /* 5. Process Step Active View Illuminator */
 .step-card {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .step-card.in-view {
-  border-color: #bbb8ac;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
+  border-color: #0a0a0c;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.14);
 }
 .step-card.in-view .step-number {
   color: var(--color-accent);

@@ -263,38 +263,272 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =========================================================================
-  // 4. SIMPLIFY-STYLE SCROLL ANIMATION SYSTEM
+  // 4. INTERACTIVE SOLUTION BLUEPRINT COMPONENT (Right Hero Column)
   // =========================================================================
+  const blueprintScenarios = [
+    {
+      name: "Lead Follow-Up",
+      bottleneck: "Inquiries arrive after hours. Team spends the first 2 hours of every morning manually sorting emails and copying details into CRM.",
+      solution: "Autonomous intake agent qualifies urgency, extracts prospect needs, logs the lead into CRM, and drafts an immediate personalized response.",
+      result: "Zero missed inquiries, instant response times, and your team only steps in for qualified, high-intent conversations."
+    },
+    {
+      name: "Doc Triage",
+      bottleneck: "Staff manually opens dozens of client PDFs, invoices, or intake forms each day to re-type line items and verify requirements.",
+      solution: "Custom extraction pipeline parses incoming documents, validates key figures against rules, and routes structured data into internal tools.",
+      result: "Documents processed within seconds of arrival with high accuracy and an auditable record of every action."
+    },
+    {
+      name: "Sheet Sync",
+      bottleneck: "Project updates, status notes, and customer records sit siloed across separate apps, requiring endless copy-pasting to stay aligned.",
+      solution: "Deterministic two-way workflow automation bridges your project manager, databases, and spreadsheets whenever records change.",
+      result: "Every dashboard and sheet updates in real time automatically without human intervention or copy-paste errors."
+    }
+  ];
 
-  // A. Top Reading Progress Bar
-  let progressBar = document.getElementById('scroll-progress-bar');
-  if (!progressBar) {
-    progressBar = document.createElement('div');
-    progressBar.id = 'scroll-progress-bar';
-    progressBar.className = 'scroll-progress-bar';
-    document.body.prepend(progressBar);
+  let activeScenarioIndex = 0;
+  let scenarioTimer = null;
+  let scenarioProgress = 0;
+  const SCENARIO_DURATION = 5000; // 5 seconds per scenario
+  const PROGRESS_TICK = 50; // 50ms tick
+  let isScenarioPaused = false;
+
+  const scenarioTabs = document.querySelectorAll('.scenario-tab-btn');
+  const textProblem = document.getElementById('blueprint-text-problem');
+  const textSolution = document.getElementById('blueprint-text-solution');
+  const textResult = document.getElementById('blueprint-text-result');
+  const blueprintCard = document.getElementById('interactive-blueprint-card');
+
+  function setBlueprintScenario(index, manualClick = false) {
+    if (index === activeScenarioIndex && !manualClick) return;
+    activeScenarioIndex = index;
+    scenarioProgress = 0;
+
+    // Update tabs UI
+    scenarioTabs.forEach((tab, idx) => {
+      const isActive = idx === activeScenarioIndex;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      const pBar = tab.querySelector('.scenario-progress-bar');
+      if (pBar) {
+        pBar.style.width = '0%';
+      }
+    });
+
+    // Cross-fade text smoothly
+    const textElements = [textProblem, textSolution, textResult];
+    textElements.forEach(el => {
+      if (el) el.classList.add('text-transitioning');
+    });
+
+    setTimeout(() => {
+      const data = blueprintScenarios[activeScenarioIndex];
+      if (textProblem && data) textProblem.textContent = data.bottleneck;
+      if (textSolution && data) textSolution.textContent = data.solution;
+      if (textResult && data) textResult.textContent = data.result;
+
+      textElements.forEach(el => {
+        if (el) el.classList.remove('text-transitioning');
+      });
+    }, 180);
   }
 
-  const updateScrollProgress = () => {
-    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
-    progressBar.style.width = `${Math.min(Math.max(progress, 0), 100)}%`;
+  function startBlueprintCycle() {
+    if (scenarioTimer) clearInterval(scenarioTimer);
+    scenarioTimer = setInterval(() => {
+      if (isScenarioPaused) return;
 
-    // Dynamic header elevation on scroll
-    const navHeader = document.querySelector('.nav-header');
+      scenarioProgress += (PROGRESS_TICK / SCENARIO_DURATION) * 100;
+      const activeTab = scenarioTabs[activeScenarioIndex];
+      if (activeTab) {
+        const pBar = activeTab.querySelector('.scenario-progress-bar');
+        if (pBar) pBar.style.width = `${Math.min(scenarioProgress, 100)}%`;
+      }
+
+      if (scenarioProgress >= 100) {
+        const nextIndex = (activeScenarioIndex + 1) % blueprintScenarios.length;
+        setBlueprintScenario(nextIndex);
+      }
+    }, PROGRESS_TICK);
+  }
+
+  if (scenarioTabs.length > 0) {
+    scenarioTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetIndex = parseInt(tab.dataset.scenario, 10);
+        setBlueprintScenario(targetIndex, true);
+      });
+    });
+
+    if (blueprintCard) {
+      blueprintCard.addEventListener('mouseenter', () => { isScenarioPaused = true; });
+      blueprintCard.addEventListener('mouseleave', () => { isScenarioPaused = false; });
+      blueprintCard.addEventListener('touchstart', () => { isScenarioPaused = true; }, { passive: true });
+    }
+
+    setBlueprintScenario(0, true);
+    startBlueprintCycle();
+  }
+
+  // =========================================================================
+  // 5. PARALLAX HERO BACKGROUND CONTROLLER
+  // =========================================================================
+  const heroSection = document.getElementById('hero');
+  const heroPhoto = document.querySelector('.hero-bg-photo');
+
+  function updateHeroParallax() {
+    if (!heroSection || !heroPhoto) return;
+    const rect = heroSection.getBoundingClientRect();
+    if (rect.bottom > 0 && rect.top <= window.innerHeight) {
+      const scrolled = Math.max(0, -rect.top);
+      heroPhoto.style.transform = `translate3d(0, ${(scrolled * 0.18).toFixed(1)}px, 0)`;
+    }
+  }
+
+  // =========================================================================
+  // 6. GLOBAL SCROLL PROGRESS & ACTIVE NAV SPY
+  // =========================================================================
+  let progressBar = document.getElementById('scroll-progress-bar');
+  const navHeader = document.querySelector('.nav-header');
+  const navLinks = document.querySelectorAll('.nav-links-wrap .nav-item');
+  const trackedSections = [
+    document.getElementById('services'),
+    document.getElementById('how-it-works'),
+    document.getElementById('about'),
+    document.getElementById('contact')
+  ].filter(Boolean);
+
+  function updateScrollAndNav() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+
+    if (progressBar) {
+      progressBar.style.width = `${Math.min(Math.max(progress, 0), 100)}%`;
+    }
+
     if (navHeader) {
-      if (window.scrollY > 24) {
+      if (scrollY > 20) {
         navHeader.classList.add('nav-scrolled');
       } else {
         navHeader.classList.remove('nav-scrolled');
       }
     }
-  };
 
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
-  updateScrollProgress();
+    // Active nav highlighting on scroll
+    const viewportAnchor = scrollY + 180;
+    let activeId = '';
 
-  // B. IntersectionObserver Scroll Reveal System
+    for (let i = trackedSections.length - 1; i >= 0; i--) {
+      const section = trackedSections[i];
+      if (section.offsetTop <= viewportAnchor) {
+        activeId = section.id;
+        break;
+      }
+    }
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === `#${activeId}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  // =========================================================================
+  // 7. HOW IT WORKS: CONTINUOUS PROGRESS LINE & STEP SPOTLIGHT
+  // =========================================================================
+  const howItWorksSection = document.getElementById('how-it-works');
+  const stepsProgressFill = document.getElementById('steps-progress-fill');
+  const stepCards = document.querySelectorAll('.step-card');
+
+  function updateHowItWorksProgress() {
+    if (!howItWorksSection || !stepsProgressFill) return;
+    const rect = howItWorksSection.getBoundingClientRect();
+    const sectionHeight = rect.height;
+    const windowHeight = window.innerHeight;
+
+    if (rect.top <= windowHeight && rect.bottom >= 0) {
+      const totalDistance = sectionHeight + windowHeight * 0.4;
+      const scrolledPast = windowHeight - rect.top;
+      const percentage = Math.min(Math.max((scrolledPast / totalDistance) * 100, 10), 100);
+      stepsProgressFill.style.width = `${percentage}%`;
+
+      // Map progress to active step spotlight
+      const stepIndex = Math.min(Math.floor((percentage / 100) * stepCards.length), stepCards.length - 1);
+      stepCards.forEach((card, idx) => {
+        if (idx === stepIndex) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  // Interactive click spotlight for step cards
+  stepCards.forEach(card => {
+    card.addEventListener('click', () => {
+      stepCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+    });
+  });
+
+  // =========================================================================
+  // 8. ABOUT SECTION: SCROLL-SCRUBBED MISSION REVEAL
+  // =========================================================================
+  const aboutSection = document.getElementById('about');
+  const scrubSentences = document.querySelectorAll('.about-scrub-sentence');
+
+  function updateAboutScrub() {
+    if (!aboutSection || scrubSentences.length === 0) return;
+    const rect = aboutSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top <= windowHeight && rect.bottom >= 0) {
+      const totalDistance = rect.height + windowHeight * 0.4;
+      const scrolledPast = windowHeight - rect.top;
+      const ratio = Math.min(Math.max(scrolledPast / totalDistance, 0), 1);
+
+      scrubSentences.forEach((span, idx) => {
+        const threshold = 0.12 + idx * 0.22;
+        if (ratio >= threshold) {
+          span.classList.add('illuminated');
+        } else {
+          if (idx > 0) span.classList.remove('illuminated');
+        }
+      });
+    }
+  }
+
+  // =========================================================================
+  // 9. HIGH-EFFICIENCY SCROLL DISPATCHER (requestAnimationFrame)
+  // =========================================================================
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        updateScrollAndNav();
+        updateHeroParallax();
+        updateHowItWorksProgress();
+        updateAboutScrub();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // Initial calculation on load
+  updateScrollAndNav();
+  updateHeroParallax();
+  updateHowItWorksProgress();
+  updateAboutScrub();
+
+  // =========================================================================
+  // 10. INTERSECTION OBSERVER SCROLL REVEALS
+  // =========================================================================
   const revealElements = document.querySelectorAll('.scroll-reveal');
   if ('IntersectionObserver' in window && revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -314,23 +548,49 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach(el => el.classList.add('is-revealed'));
   }
 
-  // C. Interactive Process Step Illuminator on Scroll
-  const stepCards = document.querySelectorAll('.step-card');
-  if ('IntersectionObserver' in window && stepCards.length > 0) {
-    const stepObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        } else {
-          entry.target.classList.remove('in-view');
-        }
-      });
-    }, {
-      threshold: 0.5,
-      rootMargin: '-10% 0px -10% 0px'
-    });
+  // =========================================================================
+  // 11. CONTACT: QUICK-FILL PROMPT CHIPS & "AUTOMATE THIS" DISPATCHER
+  // =========================================================================
+  const promptChips = document.querySelectorAll('.prompt-chip');
+  const problemTextarea = document.getElementById('user-problem');
 
-    stepCards.forEach(card => stepObserver.observe(card));
-  }
+  promptChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const promptText = chip.dataset.prompt;
+      if (problemTextarea && promptText) {
+        problemTextarea.value = promptText;
+        problemTextarea.focus();
+        problemTextarea.classList.remove('field-highlight');
+        void problemTextarea.offsetWidth; // force reflow
+        problemTextarea.classList.add('field-highlight');
+      }
+    });
+  });
+
+  // "Automate This →" links from service cards
+  const automateLinks = document.querySelectorAll('.service-automate-link');
+  automateLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetCategory = link.dataset.serviceCategory;
+      if (targetCategory) {
+        const matchingPill = Array.from(document.querySelectorAll('#automation-areas .pill-option'))
+          .find(p => p.dataset.value === targetCategory);
+
+        if (matchingPill) {
+          document.querySelectorAll('#automation-areas .pill-option').forEach(p => p.classList.remove('selected'));
+          matchingPill.classList.add('selected');
+        }
+      }
+
+      if (problemTextarea) {
+        setTimeout(() => {
+          problemTextarea.focus();
+          problemTextarea.classList.remove('field-highlight');
+          void problemTextarea.offsetWidth;
+          problemTextarea.classList.add('field-highlight');
+        }, 350);
+      }
+    });
+  });
 
 });
